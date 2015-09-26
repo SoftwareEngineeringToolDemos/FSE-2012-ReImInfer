@@ -1,3 +1,16 @@
+
+This repository is contains information related to the tool ReImInfer presented Foundations of Software Engineering, 2012. The tool was originally presented in [this paper](http://dl.acm.org.prox.lib.ncsu.edu/citation.cfm?id=2393596.2393640).
+
+This repository _is not_ the original repository for this tool. Here are some links to the original project:
+* [The Official Project Page, including source code](https://github.com/proganalysis/type-inference)
+
+In this repository, for ExampleTool you will find:
+* :white_check_mark: Source code (available)
+* :white_check_mark: [The original tool](http://type-inference.googlecode.com/files/type-inference-0.1.2.zip) (available)
+
+This repository was constructed by [Nikhil Chinthapallee](https://github.com/nchinth) under the supervision of [Emerson Murphy-Hill](https://github.com/CaptainEmerson). Thanks to Wei Huang and Ana Milanova for their help in establishing this repository. 
+
+
 # Introduction #
   * Extends the [Checker Framework](http://types.cs.washington.edu/checker-framework/)
 
