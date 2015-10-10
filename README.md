@@ -4,7 +4,7 @@ This repository contains information related to the tool ReImInfer presented at 
 This repository _is not_ the original repository for this tool. Here are some links to the original project:
 * [The Official Project Page, including source code](https://github.com/proganalysis/type-inference)
 
-In this repository, for ExampleTool you will find:
+In this repository, for ReImInfer you will find:
 * :white_check_mark: Source code (available)
 * :white_check_mark: [The original tool](http://type-inference.googlecode.com/files/type-inference-0.1.2.zip) (available)
 
