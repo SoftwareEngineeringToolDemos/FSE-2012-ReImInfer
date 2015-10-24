@@ -4,9 +4,11 @@ This repository contains information related to the tool ReImInfer presented at 
 This repository _is not_ the original repository for this tool. Here are some links to the original project:
 * [The Official Project Page, including source code](https://github.com/proganalysis/type-inference)
 * [Link to download the original tool](http://type-inference.googlecode.com/files/type-inference-0.1.2.zip)
+* [Link to YouTube video of the tool] (https://www.youtube.com/watch?v=QkpVJD9jizw)
 
 In this repository, for ReImInfer you will find:
 * :white_check_mark: Source code (available)
+* :x: Binary (Not available)
 
 This repository was constructed by [Nikhil Chinthapallee](https://github.com/nchinth) under the supervision of [Emerson Murphy-Hill](https://github.com/CaptainEmerson).
 Thanks to Wei Huang and Ana Milanova for their help in establishing this repository. 
@@ -59,7 +61,7 @@ The inference results are dumped to:
 
 # Build from source code #
   1. Install Oracle JDK 6 and have JAVA_HOME set correctly. JDK 7 and up should be supported but we haven't tested it yet.
-  2. Insatll [Apache Ant](http://ant.apache.org/).
+  2. Install [Apache Ant](http://ant.apache.org/).
   3. Build jsr308-langtools:
   
   ```bash
