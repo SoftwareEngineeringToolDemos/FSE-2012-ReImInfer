@@ -3,8 +3,8 @@
 ### Steps:
 * Install [Oracle VirtualBox](https://www.virtualbox.org/) and [Vagrant](http://www.vagrantup.com/).
 * Create a folder for VM on your machine and place this [VagrantFile](https://github.com/SoftwareEngineeringToolDemos/FSE-2012-ReImInfer/blob/master/build-vm/Vagrantfile) in it.
-* Now navigate to the folder and run the command "vagrant up". This will create a new ubuntu 12.04LTS virtual machine and install oracle java 1.6 in it.
-* Please wait until "vagrant up" command has completed succesfully before using the virtual machine.
+* Now navigate to the folder and run the command "vagrant up". This will create a new ubuntu 12.04LTS virtual machine and installs oracle java 1.6 in it.
+* Please wait until "vagrant up" command has completed succesfully and then you can use the virtual machine.
 * There are two ways to login into this virtual machine.
   * Use the gui provided by the Virtualbox.
   * Use ssh client(like putty or vagrant ssh) to start a new ssh session.
