@@ -25,13 +25,21 @@ Vagrant.configure(2) do |config|
 
    config.vm.provider "virtualbox" do |vb|
      vb.gui = true
+	 vb.name = 'ReImInfer-tool'
    end
  
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
 	config.vm.provision "shell", inline: <<-SHELL
+		# Update all the packages
 		sudo apt-get update
-		sudo apt-get -y install openjdk-7-jdk
+		
+		# Install oracle java 6.
+		sudo add-apt-repository -y ppa:webupd8team/java
+		sudo apt-get update
+		echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+		echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+		sudo apt-get install -y oracle-java6-installer
 	SHELL
 end
