@@ -15,4 +15,5 @@
 ### References:
 
 * https://docs.vagrantup.com/v2/getting-started/up.html
+* http://askubuntu.com/questions/67909/how-do-i-install-oracle-jdk-6
 * http://stackoverflow.com/questions/19275856/auto-yes-to-the-license-agreement-on-sudo-apt-get-y-install-oracle-java7-instal
