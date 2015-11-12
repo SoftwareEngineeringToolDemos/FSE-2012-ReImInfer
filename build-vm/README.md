@@ -2,8 +2,8 @@
 
 ### Steps:
 * Install [VirtualBox](https://www.virtualbox.org/) and [Vagrant](http://www.vagrantup.com/).
-* Create a new folder and place this [VagrantFile](https://github.com/SoftwareEngineeringToolDemos/FSE-2012-ReImInfer/blob/master/build-vm/Vagrantfile) in it.
-* Run the command "vagrant up". This will create a new ubuntu 12.04LTS virtual machine and install openjdk-1.7 in it.
+* Create a folder on your machine and place this [VagrantFile](https://github.com/SoftwareEngineeringToolDemos/FSE-2012-ReImInfer/blob/master/build-vm/Vagrantfile) in it.
+* Now navigate to the folder and run the command "vagrant up". This will create a new ubuntu 12.04LTS virtual machine and install oracle java 1.6 in it.
 * There are two ways to login into this virtual machine.
   * Use the gui provided by the Virtualbox.
   * Use ssh client(like putty or vagrant ssh) to start a new ssh session.
@@ -12,4 +12,6 @@
   * Password: vagrant
 
 ### References:
+
 * https://docs.vagrantup.com/v2/getting-started/up.html
+* http://stackoverflow.com/questions/19275856/auto-yes-to-the-license-agreement-on-sudo-apt-get-y-install-oracle-java7-instal
