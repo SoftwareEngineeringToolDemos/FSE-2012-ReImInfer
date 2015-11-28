@@ -6,84 +6,64 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
-
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "box-cutter/ubuntu1204-desktop"
-
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
-
-  # Create a public network, which generally matched to bridged network.
-  # Bridged networks make the machine appear as another physical device on
-  # your network.
-  # config.vm.network "public_network"
+   config.vm.box = "box-cutter/ubuntu1204-desktop"
 
    config.vm.provider "virtualbox" do |vb|
      vb.gui = true
-	 vb.name = 'ReImInfer-tool'
+     vb.name = 'ReImInfer'
    end
- 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-	config.vm.provision "shell", inline: <<-SHELL
-		# Update all the packages
-		sudo apt-get update
-		
-		# Install oracle java 6.
-		sudo add-apt-repository -y ppa:webupd8team/java
-		sudo apt-get update
-		echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
-		echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
-		sudo apt-get install -y oracle-java6-installer		
-		
+   
+   config.vm.provision "shell", inline: <<-SHELL
+     # Update all the packages
+     sudo apt-get update
+   
+     # Install oracle java 6.
+     sudo add-apt-repository -y ppa:webupd8team/java
+     sudo apt-get update
+     echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+     echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+     sudo apt-get install -y oracle-java6-installer		
 
-		# Download the binary to Desktop.
-		cd /home/vagrant/Desktop
-		wget "http://type-inference.googlecode.com/files/type-inference-0.1.2.zip"
-		unzip type-inference-0.1.2.zip
-		rm -f /home/vagrant/Desktop/type-inference-0.1.2.zip
-		sudo chmod 777 type-inference-0.1.2
+     # Download the binary to Desktop.
+     cd /home/vagrant/Desktop
+     wget "http://type-inference.googlecode.com/files/type-inference-0.1.2.zip"
+     unzip type-inference-0.1.2.zip
+     rm -f /home/vagrant/Desktop/type-inference-0.1.2.zip
+     sudo chmod 777 type-inference-0.1.2
 		
-		# Setup readMe,License and youtube link.
-		cd /home/vagrant/Desktop
-		wget -O Supportfiles.tar.gz "https://github.com/SoftwareEngineeringToolDemos/FSE-2012-ReImInfer/blob/master/build-vm/Supportfiles.tar.gz?raw=true"
-		tar zxvf Supportfiles.tar.gz 
-		rm Supportfiles.tar.gz 
+     # Setup readMe,License and youtube link.
+     cd /home/vagrant/Desktop
+     wget -O Supportfiles.tar.gz "https://github.com/SoftwareEngineeringToolDemos/FSE-2012-ReImInfer/blob/master/build-vm/Supportfiles.tar.gz?raw=true"
+     tar zxvf Supportfiles.tar.gz 
+     rm Supportfiles.tar.gz 
 		
-		# Open terminal on startup and disable lock.
-		cd /home/vagrant/.config
-		mkdir autostart	
-		chmod 777 autostart
-		cd /home/vagrant/Desktop
-		sudo mv gnome-terminal.desktop /home/vagrant/.config/autostart/
-		sudo mv disable-lock.desktop /home/vagrant/.config/autostart/
-		
-		
-		#Enable autologin.
-		sudo mkdir /etc/lightdm/lightdm.conf.d
-		chmod 777 /etc/lightdm/lightdm.conf.d
-		cd /etc/lightdm/lightdm.conf.d/
-		sudo touch 50-myconfig.conf
-		echo -ne "[SeatDefaults]\nautologin-user=vagrant" >> 50-myconfig.conf
-		
-		# Upgrade firefox for the video to play.
-		sudo apt-get install -y firefox
-		sudo apt-get install -y flashplugin-installer
-		
-		#Remove Sidebar icons.
-		sudo rm -f "/usr/share/applications/libreoffice-calc.desktop"
-		sudo rm -f "/usr/share/applications/libreoffice-writer.desktop"
-		sudo rm -f "/usr/share/applications/libreoffice-impress.desktop"
-		sudo rm -f "/usr/share/applications/ubuntu-software-center.desktop"
-		sudo rm -f "/usr/share/applications/ubuntuone-installer.desktop"
+     # Open terminal on startup and disable lock.
+     cd /home/vagrant/.config
+     mkdir autostart	
+     chmod 777 autostart
+     cd /home/vagrant/Desktop
+     sudo mv gnome-terminal.desktop /home/vagrant/.config/autostart/
+     sudo mv disable-lock.desktop /home/vagrant/.config/autostart/
 
-		# Reboot the machine.
-		sudo reboot
-	SHELL
+     #Enable autologin.
+     sudo mkdir /etc/lightdm/lightdm.conf.d
+     chmod 777 /etc/lightdm/lightdm.conf.d
+     cd /etc/lightdm/lightdm.conf.d/
+     sudo touch 50-myconfig.conf
+     echo -ne "[SeatDefaults]\nautologin-user=vagrant" >> 50-myconfig.conf
+		
+     # Upgrade firefox for the video to play.
+     sudo apt-get install -y firefox
+     sudo apt-get install -y flashplugin-installer
+		
+     #Remove Sidebar icons.
+     sudo rm -f "/usr/share/applications/libreoffice-calc.desktop"
+     sudo rm -f "/usr/share/applications/libreoffice-writer.desktop"
+     sudo rm -f "/usr/share/applications/libreoffice-impress.desktop"
+     sudo rm -f "/usr/share/applications/ubuntu-software-center.desktop"
+     sudo rm -f "/usr/share/applications/ubuntuone-installer.desktop"
+
+     # Reboot the machine.
+     sudo reboot
+   SHELL
 end
