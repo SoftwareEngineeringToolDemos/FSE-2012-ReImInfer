@@ -40,6 +40,50 @@ Vagrant.configure(2) do |config|
 		sudo apt-get update
 		echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
 		echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
-		sudo apt-get install -y oracle-java6-installer
+		sudo apt-get install -y oracle-java6-installer		
+		
+
+		# Download the binary to Desktop.
+		cd /home/vagrant/Desktop
+		wget "http://type-inference.googlecode.com/files/type-inference-0.1.2.zip"
+		unzip type-inference-0.1.2.zip
+		rm -f /home/vagrant/Desktop/type-inference-0.1.2.zip
+		sudo chmod 777 type-inference-0.1.2
+		
+		# Setup readMe,License and youtube link.
+		cd /home/vagrant/Desktop
+		wget -O Supportfiles.tar.gz "https://github.com/SoftwareEngineeringToolDemos/FSE-2012-ReImInfer/blob/master/build-vm/Supportfiles.tar.gz?raw=true"
+		tar zxvf Supportfiles.tar.gz 
+		rm Supportfiles.tar.gz 
+		
+		# Open terminal on startup and disable lock.
+		cd /home/vagrant/.config
+		mkdir autostart	
+		chmod 777 autostart
+		cd /home/vagrant/Desktop
+		sudo mv gnome-terminal.desktop /home/vagrant/.config/autostart/
+		sudo mv disable-lock.desktop /home/vagrant/.config/autostart/
+		
+		
+		#Enable autologin.
+		sudo mkdir /etc/lightdm/lightdm.conf.d
+		chmod 777 /etc/lightdm/lightdm.conf.d
+		cd /etc/lightdm/lightdm.conf.d/
+		sudo touch 50-myconfig.conf
+		echo -ne "[SeatDefaults]\nautologin-user=vagrant" >> 50-myconfig.conf
+		
+		# Upgrade firefox for the video to play.
+		sudo apt-get install -y firefox
+		sudo apt-get install -y flashplugin-installer
+		
+		#Remove Sidebar icons.
+		sudo rm -f "/usr/share/applications/libreoffice-calc.desktop"
+		sudo rm -f "/usr/share/applications/libreoffice-writer.desktop"
+		sudo rm -f "/usr/share/applications/libreoffice-impress.desktop"
+		sudo rm -f "/usr/share/applications/ubuntu-software-center.desktop"
+		sudo rm -f "/usr/share/applications/ubuntuone-installer.desktop"
+
+		# Reboot the machine.
+		sudo reboot
 	SHELL
 end
