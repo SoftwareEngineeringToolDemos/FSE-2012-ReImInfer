@@ -9,7 +9,7 @@ This repository _is not_ the original repository for this tool. Here are some li
 In this repository, for ReImInfer you will find:
 * :white_check_mark: [Source code (available)](https://github.com/SoftwareEngineeringToolDemos/FSE-2012-ReImInfer)
 * :white_check_mark: [Binary (available)](https://github.com/SoftwareEngineeringToolDemos/FSE-2012-ReImInfer/blob/master/type-inference-0.1.2.zip)
-* :x: Video of the tool (not available).
+* :white_check_mark: [Virtual machine containing tool](http://go.ncsu.edu/SE-tool-VMs)
 
 This repository was constructed by [Nikhil Chinthapallee](https://github.com/nchinth) under the supervision of [Emerson Murphy-Hill](https://github.com/CaptainEmerson).
 Thanks to Wei Huang and Ana Milanova for their help in establishing this repository. 
